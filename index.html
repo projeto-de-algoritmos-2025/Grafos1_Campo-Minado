@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo Minado</title>
+    <link rel="stylesheet" href="style.css" >
+    <script src="script.js"></script>
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <main>
+        <h1>Campo Minado</h1>
+        <section id="game-board" class="grid">
+          <!-- 9x9 = 81 células -->
+          <!-- Vamos criar 81 divs com classes para estilizar depois -->
+          <!-- Ex: data-row="0" data-col="0" pra facilitar o JS depois -->
+          <!-- Aqui usamos um pouco de repetição pra facilitar tua vida depois -->
+          <!-- Isso pode ser gerado via JS depois também -->
+          <!-- Exemplo de uma célula:
+               <div class="cell" data-row="0" data-col="0"></div>
+          -->
+          <!-- Você pode copiar e colar o bloco abaixo e mudar as linhas e colunas se quiser fazer manual -->
+          <!-- Mas aqui vai uma versão com todas as 81 células já feitas: -->
+          <!-- Linhas 0 a 8 e colunas 0 a 8 -->
+          <!-- Vai ficar visualmente limpo porque usamos classes -->
+          <!-- Você pode usar Ctrl + F ou o inspetor do navegador pra testar -->
+    
+          <!-- Geração manual das células -->
+          <!-- Início da grade 9x9 -->
+          <!-- Você pode automatizar com JS mais tarde -->
+          <!-- Linha 0 -->
+          <div class="cell" data-row="0" data-col="0"></div>
+          <div class="cell" data-row="0" data-col="1"></div>
+          <div class="cell" data-row="0" data-col="2"></div>
+          <div class="cell" data-row="0" data-col="3"></div>
+          <div class="cell" data-row="0" data-col="4"></div>
+          <div class="cell" data-row="0" data-col="5"></div>
+          <div class="cell" data-row="0" data-col="6"></div>
+          <div class="cell" data-row="0" data-col="7"></div>
+          <div class="cell" data-row="0" data-col="8"></div>
+    
+          <!-- Linha 1 -->
+          <div class="cell" data-row="1" data-col="0"></div>
+          <div class="cell" data-row="1" data-col="1"></div>
+          <div class="cell" data-row="1" data-col="2"></div>
+          <div class="cell" data-row="1" data-col="3"></div>
+          <div class="cell" data-row="1" data-col="4"></div>
+          <div class="cell" data-row="1" data-col="5"></div>
+          <div class="cell" data-row="1" data-col="6"></div>
+          <div class="cell" data-row="1" data-col="7"></div>
+          <div class="cell" data-row="1" data-col="8"></div>
+    
+          <!-- Linha 2 -->
+          <div class="cell" data-row="2" data-col="0"></div>
+          <div class="cell" data-row="2" data-col="1"></div>
+          <div class="cell" data-row="2" data-col="2"></div>
+          <div class="cell" data-row="2" data-col="3"></div>
+          <div class="cell" data-row="2" data-col="4"></div>
+          <div class="cell" data-row="2" data-col="5"></div>
+          <div class="cell" data-row="2" data-col="6"></div>
+          <div class="cell" data-row="2" data-col="7"></div>
+          <div class="cell" data-row="2" data-col="8"></div>
+    
+          <!-- Linha 3 -->
+          <div class="cell" data-row="3" data-col="0"></div>
+          <div class="cell" data-row="3" data-col="1"></div>
+          <div class="cell" data-row="3" data-col="2"></div>
+          <div class="cell" data-row="3" data-col="3"></div>
+          <div class="cell" data-row="3" data-col="4"></div>
+          <div class="cell" data-row="3" data-col="5"></div>
+          <div class="cell" data-row="3" data-col="6"></div>
+          <div class="cell" data-row="3" data-col="7"></div>
+          <div class="cell" data-row="3" data-col="8"></div>
+    
+          <!-- Linha 4 -->
+          <div class="cell" data-row="4" data-col="0"></div>
+          <div class="cell" data-row="4" data-col="1"></div>
+          <div class="cell" data-row="4" data-col="2"></div>
+          <div class="cell" data-row="4" data-col="3"></div>
+          <div class="cell" data-row="4" data-col="4"></div>
+          <div class="cell" data-row="4" data-col="5"></div>
+          <div class="cell" data-row="4" data-col="6"></div>
+          <div class="cell" data-row="4" data-col="7"></div>
+          <div class="cell" data-row="4" data-col="8"></div>
+    
+          <!-- Linha 5 -->
+          <div class="cell" data-row="5" data-col="0"></div>
+          <div class="cell" data-row="5" data-col="1"></div>
+          <div class="cell" data-row="5" data-col="2"></div>
+          <div class="cell" data-row="5" data-col="3"></div>
+          <div class="cell" data-row="5" data-col="4"></div>
+          <div class="cell" data-row="5" data-col="5"></div>
+          <div class="cell" data-row="5" data-col="6"></div>
+          <div class="cell" data-row="5" data-col="7"></div>
+          <div class="cell" data-row="5" data-col="8"></div>
+    
+          <!-- Linha 6 -->
+          <div class="cell" data-row="6" data-col="0"></div>
+          <div class="cell" data-row="6" data-col="1"></div>
+          <div class="cell" data-row="6" data-col="2"></div>
+          <div class="cell" data-row="6" data-col="3"></div>
+          <div class="cell" data-row="6" data-col="4"></div>
+          <div class="cell" data-row="6" data-col="5"></div>
+          <div class="cell" data-row="6" data-col="6"></div>
+          <div class="cell" data-row="6" data-col="7"></div>
+          <div class="cell" data-row="6" data-col="8"></div>
+    
+          <!-- Linha 7 -->
+          <div class="cell" data-row="7" data-col="0"></div>
+          <div class="cell" data-row="7" data-col="1"></div>
+          <div class="cell" data-row="7" data-col="2"></div>
+          <div class="cell" data-row="7" data-col="3"></div>
+          <div class="cell" data-row="7" data-col="4"></div>
+          <div class="cell" data-row="7" data-col="5"></div>
+          <div class="cell" data-row="7" data-col="6"></div>
+          <div class="cell" data-row="7" data-col="7"></div>
+          <div class="cell" data-row="7" data-col="8"></div>
+    
+          <!-- Linha 8 -->
+          <div class="cell" data-row="8" data-col="0"></div>
+          <div class="cell" data-row="8" data-col="1"></div>
+          <div class="cell" data-row="8" data-col="2"></div>
+          <div class="cell" data-row="8" data-col="3"></div>
+          <div class="cell" data-row="8" data-col="4"></div>
+          <div class="cell" data-row="8" data-col="5"></div>
+          <div class="cell" data-row="8" data-col="6"></div>
+          <div class="cell" data-row="8" data-col="7"></div>
+          <div class="cell" data-row="8" data-col="8"></div>
+        </section>
+      </main>
+</body>
+</html>
