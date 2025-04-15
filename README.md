@@ -7,7 +7,7 @@
 |Matrícula | Aluno |
 | -- | -- |
 | 222015248  |  Rafael Gomes Pereira |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 222025324  |  João Lucas Araujo Siqueira |
 
 ## Sobre 
 O projeto implementa uma versão do jogo campo minado, utilizando uma BFS para abrir os campos com valor zero adjacentes ao selecionado, ideia semelhante ao Flood Fill.
