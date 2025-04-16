@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campo Minado</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <link rel="icon" href="favicon.ico">
 </head>
 
 <body>
     <main>
         <h1>Campo Minado</h1>
+
+        <div class="game-info">
+            <div id="time-display">Tempo: 0s</div>
+            <div id="marked-display">Bombas: 0/10</div>
+        </div>
+
         <section id="game-board" class="grid">
 
             <div class="cell" data-row="0" data-col="0"></div>
@@ -113,7 +118,32 @@
             <div class="cell" data-row="8" data-col="7"></div>
             <div class="cell" data-row="8" data-col="8"></div>
         </section>
+
+        <div class="controls">
+            <button id="reset-button">Reiniciar</button>
+            <button id="view-scores-button">Ver Melhores Tempos</button>
+        </div>
+
+        <div class="authors">
+            <a href="https://github.com/rafgpereira">@rafgpereira</a>
+            <a href="https://github.com/jlucasiqueira">@jlucasiqueira</a>
+        </div>
+
     </main>
+
+    <div id="scores-modal" class="modal">
+        <div class="modal-content">
+            <h2>Melhores Tempos</h2>
+            <ul id="scores-list">
+            </ul>
+            <div class="modal-controls">
+                 <button id="clear-scores-button">Limpar Histórico</button>
+                 <button id="close-scores-button">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
