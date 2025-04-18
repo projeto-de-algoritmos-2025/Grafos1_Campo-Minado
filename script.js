@@ -69,3 +69,22 @@ function generateBombs() {
         }
     }
 }
+
+function calculateCounts() {
+    const dir = [-1, 0, 1];
+    for (let r = 0; r < boardSize; r++) {
+        for (let c = 0; c < boardSize; c++) {
+            if (board[r][c].bomb) continue;
+            let count = 0;
+            for (let dx of dir) {
+                for (let dy of dir) {
+                    if (dx === 0 && dy === 0) continue;
+                    const nr = r + dx;
+                    const nc = c + dy;
+                    if (inBounds(nr, nc) && board[nr][nc].bomb) count++;
+                }
+            }
+            board[r][c].count = count;
+        }
+    }
+}
