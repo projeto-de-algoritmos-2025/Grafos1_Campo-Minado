@@ -337,3 +337,17 @@ function displayScores() {
     }
     scoresModal.classList.add("visible");
 }
+function escapeHtml(unsafe) {
+    if (!unsafe) return '';
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
+ function inBounds(r, c) {
+    return r >= 0 && c >= 0 && r < boardSize && c < boardSize;
+}
+
+initGame();
