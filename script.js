@@ -17,3 +17,17 @@ const scoresModal = document.getElementById("scores-modal");
 const closeScoresButton = document.getElementById("close-scores-button");
 const clearScoresButton = document.getElementById("clear-scores-button");
 const scoresList = document.getElementById("scores-list");
+
+resetButton.addEventListener("click", initGame);
+viewScoresButton.addEventListener("click", displayScores);
+closeScoresButton.addEventListener("click", () => {
+
+    scoresModal.classList.remove("visible");
+});
+clearScoresButton.addEventListener("click", () => {
+    if (confirm("Tem certeza que deseja limpar o histórico de tempos?")) {
+        localStorage.removeItem("scores");
+        displayScores();
+    }
+});
+
