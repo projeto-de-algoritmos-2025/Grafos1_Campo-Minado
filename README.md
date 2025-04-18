@@ -16,7 +16,6 @@ Este trabalho tem como objetivo implementar o algoritmo de Grafos 1 denominado B
 
 ## Screenshots
 
-<center>
 
 <p>
   <img src="/assets/telaInicio.png" width="300" alt="Captura de tela da interface principal">
@@ -58,13 +57,13 @@ Este trabalho tem como objetivo implementar o algoritmo de Grafos 1 denominado B
 
 ---
 
-</center>
 
 ## Vídeo de Apresentação
 
 Neste vídeo, apresentamos o trabalho desenvolvido, abordando os principais pontos desenvolvidos ao longo do projeto.
 
 [Assista no Youtube](https://youtu.be/pwgeXTZMVvQ)
+
 
 ---
 
