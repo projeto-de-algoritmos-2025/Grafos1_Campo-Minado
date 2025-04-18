@@ -88,3 +88,112 @@ function calculateCounts() {
         }
     }
 }
+
+function renderBoard() {
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach(cell => {
+        const r = parseInt(cell.dataset.row);
+        const c = parseInt(cell.dataset.col);
+        const cellData = board[r][c];
+
+
+        cell.classList.remove("revealed", "bomb", "marked", "num-1", "num-2", "num-3", "num-4", "num-5", "num-6", "num-7", "num-8");
+        cell.textContent = "";
+
+
+        if (cellData.revealed) {
+            cell.classList.add("revealed");
+
+            if (cellData.bomb) {
+                cell.classList.add("bomb");
+                cell.textContent = "💣";
+            } else if (cellData.count > 0) {
+                cell.textContent = cellData.count;
+
+                 cell.classList.add(`num-${cellData.count}`);
+            }
+        } else if (cellData.marked) {
+            cell.classList.add("marked");
+            cell.textContent = "🚩";
+        }
+
+        const newCell = cell.cloneNode(true);
+        cell.parentNode.replaceChild(newCell, cell);
+        newCell.dataset.row = r;
+        newCell.dataset.col = c;
+
+
+        newCell.oncontextmenu = (e) => {
+            e.preventDefault();
+            if (gameOver || cellData.revealed) return;
+
+
+            if (!cellData.marked && markedCount >= bombCount) {
+                 alert(`Você só pode marcar ${bombCount} bombas!`);
+                 return;
+             }
+
+            cellData.marked = !cellData.marked;
+
+
+            markedCount += cellData.marked ? 1 : -1;
+            markedDisplay.textContent = `Marcadas: ${markedCount}/${bombCount}`;
+
+            renderBoard();
+        };
+
+        newCell.onclick = () => {
+
+            if (gameOver || cellData.marked) return;
+
+            if (!startTime && !cellData.revealed) {
+                 startTime = Date.now();
+                 window.timer = setInterval(updateTimer, 1000);
+             }
+
+            if (cellData.revealed) {
+                let flagCount = 0;
+                for (let dr = -1; dr <= 1; dr++) {
+                    for (let dc = -1; dc <= 1; dc++) {
+                        const nr = r + dr;
+                        const nc = c + dc;
+                        if (inBounds(nr, nc) && !(dr === 0 && dc === 0)) {
+                            if (board[nr][nc].marked) flagCount++;
+                        }
+                    }
+                }
+
+                if (flagCount === cellData.count) {
+                    for (let dr = -1; dr <= 1; dr++) {
+                        for (let dc = -1; dc <= 1; dc++) {
+                            const nr = r + dr;
+                            const nc = c + dc;
+                            if (inBounds(nr, nc) && !(dr === 0 && dc === 0)) {
+                                if (!board[nr][nc].marked && !board[nr][nc].revealed) {
+                                    revealCell(nr, nc);
+                                }
+                            }
+                        }
+                    }
+
+                     if (!gameOver) {
+                        renderBoard();
+                        checkVictory();
+                    } else {
+                         renderBoard();
+                    }
+                }
+            } else {
+                 revealCell(r, c);
+                 if (!gameOver) {
+                     renderBoard();
+                     checkVictory();
+                 } else {
+                    renderBoard();
+                 }
+            }
+        };
+
+    });
+}
+
