@@ -253,3 +253,17 @@ function revealCell(r, c) {
         bfs(r, c);
     }
 }
+
+function revealAllBombs() {
+    for (let r = 0; r < boardSize; r++) {
+        for (let c = 0; c < boardSize; c++) {
+            const cell = board[r][c];
+            if (cell.bomb) {
+                if(!cell.marked) {
+                    cell.revealed = true;
+                }
+            }
+        }
+    }
+    renderBoard();
+}
