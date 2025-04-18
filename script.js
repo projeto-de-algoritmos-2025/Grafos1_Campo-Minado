@@ -232,3 +232,24 @@ function bfs(startR, startC) {
         }
     }
 }
+function revealCell(r, c) {
+    if (!inBounds(r, c)) return;
+    const cell = board[r][c];
+    if (gameOver || cell.revealed || cell.marked) return;
+
+    cell.revealed = true;
+
+    if (cell.bomb) {
+        gameOver = true;
+        clearInterval(window.timer);
+        revealAllBombs();
+
+        return;
+    }
+
+    revealedCount++;
+
+    if (cell.count === 0) {
+        bfs(r, c);
+    }
+}
