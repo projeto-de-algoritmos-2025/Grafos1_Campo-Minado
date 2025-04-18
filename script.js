@@ -280,3 +280,16 @@ function checkVictory() {
         renderBoard();
     }
 }
+function markRemainingBombs() {
+    let bombsToMark = bombCount - markedCount;
+    for (let r = 0; r < boardSize && bombsToMark > 0; r++) {
+        for (let c = 0; c < boardSize && bombsToMark > 0; c++) {
+            if (board[r][c].bomb && !board[r][c].marked) {
+                board[r][c].marked = true;
+                markedCount++;
+                bombsToMark--;
+            }
+        }
+    }
+    markedDisplay.textContent = `Bombas: ${markedCount}/${bombCount}`;
+}
