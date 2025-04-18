@@ -267,3 +267,16 @@ function revealAllBombs() {
     }
     renderBoard();
 }
+function checkVictory() {
+    const totalNonBombCells = boardSize * boardSize - bombCount;
+    if (revealedCount === totalNonBombCells && !gameOver) {
+        gameOver = true;
+        clearInterval(window.timer);
+        const timeTaken = Math.floor(elapsedTime);
+
+        setTimeout(() => saveScore(timeTaken), 100);
+
+        markRemainingBombs();
+        renderBoard();
+    }
+}
