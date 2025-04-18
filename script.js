@@ -57,3 +57,15 @@ function initGame() {
     clearInterval(window.timer);
     scoresModal.classList.remove("visible");
 }
+
+function generateBombs() {
+    let placed = 0;
+    while (placed < bombCount) {
+        const r = Math.floor(Math.random() * boardSize);
+        const c = Math.floor(Math.random() * boardSize);
+        if (!board[r][c].bomb) {
+            board[r][c].bomb = true;
+            placed++;
+        }
+    }
+}
