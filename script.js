@@ -318,3 +318,22 @@ function updateTimer() {
         timeDisplay.textContent = `Tempo: ${elapsedTime}s`;
     }
 }
+function displayScores() {
+    const scores = JSON.parse(localStorage.getItem("scores")) || [];
+    scoresList.innerHTML = "";
+
+    if (scores.length === 0) {
+        const noScores = document.createElement("li");
+        noScores.textContent = "Nenhum tempo registrado.";
+        noScores.style.textAlign = 'center';
+        noScores.style.fontFamily = 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif';
+        scoresList.appendChild(noScores);
+    } else {
+        scores.forEach((score, index) => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `<span class="rank">#${index + 1}</span> <span class="name">${escapeHtml(score.name)}</span> <span class="time">${score.time}s</span>`;
+            scoresList.appendChild(listItem);
+        });
+    }
+    scoresModal.classList.add("visible");
+}
