@@ -293,3 +293,20 @@ function markRemainingBombs() {
     }
     markedDisplay.textContent = `Bombas: ${markedCount}/${bombCount}`;
 }
+function saveScore(time) {
+
+    setTimeout(() => {
+        const name = prompt(`Você venceu em ${time}s! Digite seu nome:`, "Jogador");
+        if (name) {
+            const scores = JSON.parse(localStorage.getItem("scores")) || [];
+            scores.push({ name, time });
+            scores.sort((a, b) => a.time - b.time);
+
+            if (scores.length > 10) {
+                scores.length = 10;
+            }
+            localStorage.setItem("scores", JSON.stringify(scores));
+            displayScores();
+        }
+    }, 50);
+}
