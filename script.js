@@ -197,3 +197,38 @@ function renderBoard() {
     });
 }
 
+function bfs(startR, startC) {
+    const queue = [[startR, startC]];
+    const visited = new Set([`${startR},${startC}`]);
+
+    while (queue.length) {
+        const [r, c] = queue.shift();
+        const cell = board[r][c];
+
+        if (cell.count === 0) {
+             for (let dr = -1; dr <= 1; dr++) {
+                 for (let dc = -1; dc <= 1; dc++) {
+                     if (dr === 0 && dc === 0) continue;
+                     const nr = r + dr;
+                     const nc = c + dc;
+                     const key = `${nr},${nc}`;
+
+                     if (inBounds(nr, nc) && !visited.has(key)) {
+                        const neighborCell = board[nr][nc];
+                        if (!neighborCell.marked && !neighborCell.revealed) {
+                             visited.add(key);
+                            neighborCell.revealed = true;
+                            if (!neighborCell.bomb) {
+                                revealedCount++;
+                            }
+
+                             if (neighborCell.count === 0) {
+                                queue.push([nr, nc]);
+                             }
+                         }
+                     }
+                 }
+             }
+        }
+    }
+}
