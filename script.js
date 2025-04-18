@@ -310,3 +310,11 @@ function saveScore(time) {
         }
     }, 50);
 }
+function updateTimer() {
+    if (gameOver || !startTime) return;
+    const currentTime = Math.floor((Date.now() - startTime) / 1000);
+    if (currentTime !== elapsedTime) {
+        elapsedTime = currentTime;
+        timeDisplay.textContent = `Tempo: ${elapsedTime}s`;
+    }
+}
