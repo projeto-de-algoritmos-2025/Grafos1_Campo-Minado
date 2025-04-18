@@ -13,15 +13,39 @@
 O projeto implementa uma versão do jogo campo minado, utilizando uma BFS para abrir os campos com valor zero adjacentes ao selecionado, ideia semelhante ao Flood Fill.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+<p>
+  <img src="telaInicio.png" width="300" alt="Captura de tela da interface principal">
+  <br>
+  <sub>Captura de tela da interface principal</sub>
+</p>
+<p>
+  <img src="telaJogoVencido.png" width="300" alt="Captura de tela da interface quando se vence o jogo">
+  <br>
+  <sub>Captura de tela da interface quando se vence o jogo</sub>
+</p>
+<p>
+  <img src="telaJogoTerminado.png" width="300" alt="Captura de tela da interface da tabela preenchida">
+  <br>
+  <sub>Captura de tela da interface da tabela preenchida</sub>
+</p>
+<p>
+  <img src="telaTabelaPontuacao.png" width="300" alt="Captura de tela da interface da tabela de pontuacao">
+  <br>
+  <sub>Captura de tela da interface da tabela de pontuação</sub>
+</p>
+<p>
+  <img src="telaDerrota.png" width="300" alt="Captura de tela da interface da derrota na partida ">
+  <br>
+  <sub>Captura de tela da interface da derrota na partida</sub>
+</p>
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: Javascript, HTML e CSS<br>
+**Framework**: Não foi utilizado<br>
+Para executar este projeto de Campo Minado, o único requisito é ter um navegador web moderno instalado no seu computador. 
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+Apenas clique no link disponível no campo "about" do repositório no GitHub e divirta-se 🎉
 
 ## Outros 
 Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
